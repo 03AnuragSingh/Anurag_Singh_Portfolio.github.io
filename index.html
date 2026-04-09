@@ -1,1 +1,976 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- ═══════════════════════════════════════════════
+       SEO: Edit these lines with your own details
+  ═══════════════════════════════════════════════ -->
+  <title>Anurag Singh · Business & Data Analyst</title>
+  <meta name="description" content="MBA candidate at Great Lakes Institute of Management specialising in Data Analytics, AI/ML, and CRM strategy. Open to Business Analyst, Salesforce, and Presales roles." />
+  <meta name="keywords" content="Anurag Singh, Business Analyst, Data Analytics, Salesforce, MBA, Portfolio" />
+  <meta name="author" content="Anurag Singh" />
+
+  <!-- Open Graph (for link previews on LinkedIn / WhatsApp) -->
+  <meta property="og:title" content="Anurag Singh · Portfolio" />
+  <meta property="og:description" content="Business Technology Analyst · Salesforce Developer · Data & Strategy" />
+  <meta property="og:type" content="website" />
+  <!-- <meta property="og:image" content="your-photo.jpg" /> -->
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ════════════════════════════════════════════
+       DESIGN TOKENS — edit colours here only
+    ════════════════════════════════════════════ */
+    :root {
+      --bg:        #ffffff;
+      --bg-soft:   #f7f7f5;
+      --bg-card:   #f2f2ef;
+      --text:      #111111;
+      --text-2:    #555555;
+      --text-3:    #888888;
+      --border:    rgba(0,0,0,0.10);
+      --border-md: rgba(0,0,0,0.18);
+      --accent:    #111111;
+      --tag-bg:    #ebebeb;
+      --tag-text:  #333333;
+      --nav-bg:    rgba(255,255,255,0.82);
+      --shadow:    0 2px 24px rgba(0,0,0,0.06);
+    }
+    [data-theme="dark"] {
+      --bg:        #0e0e0e;
+      --bg-soft:   #161616;
+      --bg-card:   #1e1e1e;
+      --text:      #f0f0f0;
+      --text-2:    #aaaaaa;
+      --text-3:    #666666;
+      --border:    rgba(255,255,255,0.08);
+      --border-md: rgba(255,255,255,0.16);
+      --accent:    #f0f0f0;
+      --tag-bg:    #2a2a2a;
+      --tag-text:  #cccccc;
+      --nav-bg:    rgba(14,14,14,0.85);
+      --shadow:    0 2px 24px rgba(0,0,0,0.35);
+    }
+
+    /* ════════════════════════════════════════════
+       RESET & BASE
+    ════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.3s, color 0.3s;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ════════════════════════════════════════════
+       NAVIGATION
+    ════════════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 32px);
+      max-width: 860px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 0.5px solid var(--border-md);
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 17px;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-2);
+      padding: 5px 12px;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-links a:hover {
+      background: var(--bg-card);
+      color: var(--text);
+    }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+
+    /* Dark mode toggle */
+    #theme-toggle {
+      cursor: pointer;
+      background: var(--bg-card);
+      border: 0.5px solid var(--border-md);
+      border-radius: 999px;
+      width: 36px;
+      height: 22px;
+      position: relative;
+      transition: background 0.3s;
+      flex-shrink: 0;
+    }
+    #theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--text);
+      transition: transform 0.25s, background 0.3s;
+    }
+    [data-theme="dark"] #theme-toggle::after { transform: translateX(14px); }
+
+    /* Mobile hamburger */
+    #menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    #menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    /* ════════════════════════════════════════════
+       LAYOUT
+    ════════════════════════════════════════════ */
+    section {
+      padding: 100px 24px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.12;
+      letter-spacing: -1px;
+      color: var(--text);
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 40px;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    p { color: var(--text-2); line-height: 1.75; }
+    .divider {
+      width: 100%;
+      height: 0.5px;
+      background: var(--border);
+      margin: 0;
+    }
+
+    /* ════════════════════════════════════════════
+       HERO — #home
+    ════════════════════════════════════════════ */
+    #home {
+      padding-top: 160px;
+      padding-bottom: 100px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-text { max-width: 540px; }
+    .hero-text h1 { margin-bottom: 20px; }
+    .hero-text p {
+      font-size: 1.05rem;
+      max-width: 440px;
+      margin-bottom: 32px;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .badge {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 0.5px solid var(--border);
+    }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 11px 24px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      border: 1px solid transparent;
+    }
+    .btn:hover { opacity: 0.82; transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border-md);
+    }
+    .hero-avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--border-md);
+      flex-shrink: 0;
+      background: var(--bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Initials placeholder — remove once you add a real photo */
+    .avatar-initials {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8rem;
+      color: var(--text-2);
+      user-select: none;
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .stat {
+      background: var(--bg-soft);
+      padding: 24px 28px;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--text);
+      display: block;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-3);
+      margin-top: 4px;
+    }
+
+    /* ════════════════════════════════════════════
+       ABOUT — #about
+    ════════════════════════════════════════════ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about-grid p { margin-bottom: 16px; }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .skill-tag {
+      font-size: 12px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 0.5px solid var(--border);
+    }
+    .timeline { display: flex; flex-direction: column; gap: 20px; }
+    .tl-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .tl-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--text);
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+    .tl-year {
+      font-size: 11px;
+      color: var(--text-3);
+      white-space: nowrap;
+      width: 52px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .tl-title { font-size: 14px; font-weight: 500; color: var(--text); }
+    .tl-sub { font-size: 12px; color: var(--text-3); }
+
+    /* ════════════════════════════════════════════
+       PROJECTS — #projects
+    ════════════════════════════════════════════ */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .project-card:hover {
+      border-color: var(--border-md);
+      transform: translateY(-3px);
+    }
+    .project-icon {
+      font-size: 26px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .project-card h3 { font-size: 15px; }
+    .project-card p { font-size: 13px; flex: 1; }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .project-tag {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      color: var(--text-3);
+      border: 0.5px solid var(--border);
+    }
+    .project-link {
+      margin-top: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .project-link:hover { opacity: 0.65; }
+
+    /* ════════════════════════════════════════════
+       BLOGS — #blogs
+    ════════════════════════════════════════════ */
+    .blogs-list { display: flex; flex-direction: column; }
+    .blog-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 0.5px solid var(--border);
+      transition: opacity 0.2s;
+    }
+    .blog-item:hover { opacity: 0.7; }
+    .blog-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--text-3);
+      width: 28px;
+    }
+    .blog-title { font-size: 15px; font-weight: 500; color: var(--text); }
+    .blog-meta { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+    .blog-arrow { color: var(--text-3); font-size: 18px; }
+
+    /* ════════════════════════════════════════════
+       SERVICES — #services
+    ════════════════════════════════════════════ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .service-card {
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      background: var(--bg);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .service-card:hover { background: var(--bg-soft); border-color: var(--border-md); }
+    .service-icon {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+    .service-card h3 { margin-bottom: 8px; }
+    .service-card p { font-size: 13.5px; }
+
+    /* ════════════════════════════════════════════
+       CONTACT — #contact
+    ════════════════════════════════════════════ */
+    .contact-inner {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 24px;
+      padding: 56px 48px;
+      text-align: center;
+    }
+    .contact-inner h2 { margin-bottom: 14px; }
+    .contact-inner p { max-width: 420px; margin: 0 auto 36px; }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      background: var(--bg);
+      border: 0.5px solid var(--border-md);
+      color: var(--text);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .contact-link:hover { background: var(--bg-soft); transform: translateY(-2px); }
+
+    /* ════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════ */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 12px;
+      color: var(--text-3);
+      border-top: 0.5px solid var(--border);
+    }
+
+    /* ════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════ */
+    @media (max-width: 680px) {
+      nav { top: 10px; width: calc(100% - 20px); padding: 8px 14px; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 70px;
+        left: 10px;
+        right: 10px;
+        background: var(--nav-bg);
+        backdrop-filter: blur(18px);
+        border: 0.5px solid var(--border-md);
+        border-radius: 20px;
+        padding: 16px;
+        gap: 4px;
+      }
+      .nav-links.open a { display: block; padding: 10px 16px; border-radius: 12px; }
+      #menu-toggle { display: flex; }
+
+      #home { grid-template-columns: 1fr; padding-top: 120px; text-align: center; }
+      .hero-avatar { width: 120px; height: 120px; margin: 0 auto; }
+      .hero-badges, .cta-row { justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .stats-row { grid-template-columns: 1fr; }
+      .contact-inner { padding: 36px 24px; }
+    }
+
+    /* ════════════════════════════════════════════
+       ANIMATIONS  (optional — remove if you want zero movement)
+    ════════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.55s ease both; }
+    .fade-up-2 { animation: fadeUp 0.55s 0.1s ease both; }
+    .fade-up-3 { animation: fadeUp 0.55s 0.2s ease both; }
+    .fade-up-4 { animation: fadeUp 0.55s 0.3s ease both; }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════ -->
+  <nav>
+    <span class="nav-logo">Anurag Singh</span>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#blogs">Blogs</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button id="theme-toggle" aria-label="Toggle dark mode"></button>
+      <button id="menu-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       HERO — HOME
+  ══════════════════════════════════════════ -->
+  <section id="home">
+    <div class="hero-text">
+      <p class="section-label fade-up">MBA · Data Analytics · AI/ML</p>
+      <h1 class="fade-up-2">Business analyst.<br><em>Problem solver.</em></h1>
+      <p class="fade-up-3">
+        I bridge strategy, data, and technology — from Salesforce CRM builds and
+        Power BI dashboards to AI-driven research at Infosys. Currently an MBA
+        candidate at Great Lakes, Gurgaon.
+      </p>
+      <div class="hero-badges fade-up-3">
+        <span class="badge">Business Analyst</span>
+        <span class="badge">Salesforce Developer</span>
+        <span class="badge">Data & Strategy</span>
+        <span class="badge">Presales</span>
+      </div>
+      <div class="cta-row fade-up-4">
+        <a href="#contact" class="btn btn-primary">Get in touch →</a>
+        <a href="#projects" class="btn btn-outline">See my work</a>
+        <!-- Replace # with link to your actual resume PDF -->
+        <a href="#" class="btn btn-outline" target="_blank">Resume ↗</a>
+      </div>
+    </div>
+
+    <!-- Replace the initials with <img src="your-photo.jpg" alt="Anurag Singh"> -->
+    <div class="hero-avatar fade-up-2">
+      <span class="avatar-initials">AS</span>
+    </div>
+  </section>
+
+  <!-- Stats bar -->
+  <div class="stats-row" style="max-width:812px; margin: 0 auto 0; padding: 0 24px;">
+    <div class="stat">
+      <span class="stat-number">3+</span>
+      <span class="stat-label">Years at Infosys</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">4</span>
+      <span class="stat-label">Enterprise clients</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">100K+</span>
+      <span class="stat-label">Records migrated (Salesforce)</span>
+    </div>
+  </div>
+
+  <div class="divider" style="margin-top: 80px;"></div>
+
+  <!-- ══════════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════════ -->
+  <section id="about">
+    <p class="section-label">About me</p>
+    <h2>From Yavatmal to global<br>enterprise clients</h2>
+    <div class="about-grid">
+      <div>
+        <p>
+          I'm Anurag Singh — a Mechanical Engineering graduate turned
+          management consultant turned MBA candidate. At Infosys I worked
+          across Strategic Design Consulting, Sales Intelligence, and
+          Salesforce/Cloud Infrastructure, serving clients like Kraft Heinz,
+          Verizon, CDK Global, and Canadian National.
+        </p>
+        <p>
+          I love turning ambiguous problems into structured solutions — whether
+          that means a 100K-record CRM migration, a GenAI-assisted research
+          workflow, or a change management strategy for a global rollout.
+        </p>
+        <p>
+          Currently pursuing an MBA (Data Analytics · AI/ML · Digital Strategy)
+          at Great Lakes Institute of Management, Gurgaon.
+        </p>
+
+        <p style="margin-top: 20px; font-size: 14px; font-weight: 500; color: var(--text);">Skills &amp; tools</p>
+        <div class="skills-list">
+          <span class="skill-tag">Salesforce Lightning</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">GenAI research</span>
+          <span class="skill-tag">Agile / Scrum</span>
+          <span class="skill-tag">Change Management</span>
+          <span class="skill-tag">Presales</span>
+          <span class="skill-tag">Secondary Research</span>
+          <span class="skill-tag">Excel / Google Sheets</span>
+        </div>
+      </div>
+
+      <div>
+        <p style="font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 20px;">Timeline</p>
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-year">2024–26</span>
+            <span class="tl-dot"></span>
+            <div>
+              <p class="tl-title">MBA — Great Lakes, Gurgaon</p>
+              <p class="tl-sub">Data Analytics · AI/ML · Digital Strategy</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2021–24</span>
+            <span class="tl-dot"></span>
+            <div>
+              <p class="tl-title">Systems Engineer — Infosys</p>
+              <p class="tl-sub">SDC · Sales Intelligence · Salesforce CIS</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2016–20</span>
+            <span class="tl-dot"></span>
+            <div>
+              <p class="tl-title">B.E. Mechanical — DY Patil, Pune</p>
+              <p class="tl-sub">First-principles engineering foundation</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">1998</span>
+            <span class="tl-dot"></span>
+            <div>
+              <p class="tl-title">Born in Yavatmal, Maharashtra</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════
+       PROJECTS
+  ══════════════════════════════════════════ -->
+  <section id="projects">
+    <p class="section-label">Selected work</p>
+    <h2>Projects that shipped<br>to production</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-icon">⚡</div>
+        <h3>Kraft Heinz Salesforce Lightning App</h3>
+        <p>End-to-end Lightning App — architecture, configuration, 100K-record data migration, production deployment, security audit trigger, and user onboarding.</p>
+        <div class="project-tags">
+          <span class="project-tag">Salesforce</span>
+          <span class="project-tag">Data Migration</span>
+          <span class="project-tag">CRM</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🔍</div>
+        <h3>Verizon Echo Change Management</h3>
+        <p>Identified Slack vs Outlook adoption gap across global teams. Designed a champion-based rollout strategy that improved tool adoption.</p>
+        <div class="project-tags">
+          <span class="project-tag">Change Management</span>
+          <span class="project-tag">Verizon</span>
+          <span class="project-tag">Analytics</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🤖</div>
+        <h3>GenAI-Driven Research Acceleration</h3>
+        <p>Built a GenAI-assisted secondary research workflow for SDC benchmarking — reduced research cycle time significantly for client deliverables.</p>
+        <div class="project-tags">
+          <span class="project-tag">GenAI</span>
+          <span class="project-tag">Automation</span>
+          <span class="project-tag">Research</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">📊</div>
+        <h3>Power BI Sales Intelligence Dashboard</h3>
+        <p>NAO intelligence dashboard using LinkedIn Sales Navigator, GlobalData, and earnings call data for proactive sales targeting.</p>
+        <div class="project-tags">
+          <span class="project-tag">Power BI</span>
+          <span class="project-tag">Sales Intelligence</span>
+          <span class="project-tag">Data Viz</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🚂</div>
+        <h3>Canadian National RFP Benchmarking</h3>
+        <p>Competitive benchmarking and secondary research for a railroad industry RFP — synthesised market data into a structured consulting deliverable.</p>
+        <div class="project-tags">
+          <span class="project-tag">Research</span>
+          <span class="project-tag">Benchmarking</span>
+          <span class="project-tag">Consulting</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🔐</div>
+        <h3>Salesforce Security Audit Trigger</h3>
+        <p>Proactively identified and resolved a critical security finding during the Kraft Heinz production deployment, preventing potential data exposure.</p>
+        <div class="project-tags">
+          <span class="project-tag">Security</span>
+          <span class="project-tag">Salesforce</span>
+          <span class="project-tag">Audit</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════
+       BLOGS
+       Tip: link each blog-item href to your
+       Medium / LinkedIn article URL
+  ══════════════════════════════════════════ -->
+  <section id="blogs">
+    <p class="section-label">Writing</p>
+    <h2>Thoughts on business,<br>data, and technology</h2>
+    <div class="blogs-list">
+
+      <a class="blog-item" href="#">
+        <span class="blog-num">01</span>
+        <div>
+          <p class="blog-title">Why every MBA student should learn Salesforce before graduation</p>
+          <p class="blog-meta">5 min read · Strategy</p>
+        </div>
+        <span class="blog-arrow">↗</span>
+      </a>
+
+      <a class="blog-item" href="#">
+        <span class="blog-num">02</span>
+        <div>
+          <p class="blog-title">Change management is a data problem — here's the proof</p>
+          <p class="blog-meta">6 min read · Change Management</p>
+        </div>
+        <span class="blog-arrow">↗</span>
+      </a>
+
+      <a class="blog-item" href="#">
+        <span class="blog-num">03</span>
+        <div>
+          <p class="blog-title">How I used GenAI to cut research cycle time by 40%</p>
+          <p class="blog-meta">4 min read · Productivity</p>
+        </div>
+        <span class="blog-arrow">↗</span>
+      </a>
+
+      <a class="blog-item" href="#">
+        <span class="blog-num">04</span>
+        <div>
+          <p class="blog-title">The presales playbook: what clients actually want in a solution pitch</p>
+          <p class="blog-meta">7 min read · Presales</p>
+        </div>
+        <span class="blog-arrow">↗</span>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════
+       SERVICES
+  ══════════════════════════════════════════ -->
+  <section id="services">
+    <p class="section-label">What I offer</p>
+    <h2>How I can help<br>your team</h2>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <h3>Salesforce Development</h3>
+        <p>Lightning App configuration, data migration, custom automation, and end-to-end Salesforce implementations for enterprise clients.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📈</div>
+        <h3>Business Analysis</h3>
+        <p>Requirements gathering, process mapping, gap analysis, and translating business needs into clear technical specifications.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3>Presales & Solution Design</h3>
+        <p>RFP responses, solution architecture decks, demo preparation, and client-facing pitch materials for complex enterprise deals.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Data & Strategy Consulting</h3>
+        <p>Power BI dashboards, secondary research, competitive benchmarking, and data-backed strategy recommendations.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔄</div>
+        <h3>Change Management</h3>
+        <p>Adoption strategies, champion-based rollouts, stakeholder communication plans, and readiness assessments for large-scale change.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3>AI/ML Workflow Design</h3>
+        <p>Identifying GenAI and ML opportunities within existing workflows — building faster, smarter research and analysis pipelines.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="contact-inner">
+      <p class="section-label">Contact</p>
+      <h2>Let's build something<br>together</h2>
+      <p>
+        Open to full-time roles in Business Analysis, Salesforce consulting, and
+        Presales / Solutions Architecture. Also happy to collaborate on freelance
+        projects and consulting engagements.
+      </p>
+      <a href="mailto:youremail@example.com" class="btn btn-primary">
+        Send me an email →
+      </a>
+      <div class="contact-links">
+        <!-- Replace # with your actual profile URLs -->
+        <a class="contact-link" href="#" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+        <a class="contact-link" href="#" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a class="contact-link" href="#" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+          Email
+        </a>
+        <a class="contact-link" href="#" target="_blank">
+          📄 Resume
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer>
+    <p>© 2025 Anurag Singh · Built with HTML & CSS · Hosted on GitHub Pages</p>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════════════ -->
+  <script>
+    // ── Dark mode toggle ──
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', saved);
+
+    toggle.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    // ── Mobile menu ──
+    const menuBtn = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // ── Active nav highlight on scroll ──
+    const sections = document.querySelectorAll('section[id]');
+    const navAs = document.querySelectorAll('.nav-links a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navAs.forEach(a => a.style.background = '');
+          const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+          if (active) active.style.background = 'var(--bg-card)';
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
